@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "fastapi-dramatiq-redis"
+version = "0.1.0"
+description = "Sample async polling API using dramatiq and fastapi, with redis as a broker"
+authors = ["Martin Morset <mmorset@gmail.com>"]
+readme = "README.md"
+packages = [
+    {include = "api", from = "src"},
+    {include = "worker", from = "src"}
+    ]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.94.0"
+uvicorn = {extras = ["standard"], version = "^0.21.0"}
+dramatiq = {extras = ["redis", "watch"], version = "^1.14.1"}
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
