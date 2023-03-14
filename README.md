@@ -23,5 +23,5 @@ uvicorn src.api.app:app & dramatiq src.worker.app
 - Flesh out the example with polling endpoint and redirection + returning results (`Result`
   middleware)
 - Test that creates some tasks to test the app, maybe even `locust` just for fun
-- Pre-commit hooks
+- ~~Pre-commit hooks~~
 - Other interesting parts of `DramatiQ`?
