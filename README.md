@@ -5,7 +5,7 @@ asynchronous API that has long running tasks.
 
 ## Run the app
 
-```
+```sh
 # Start redis
 docker compose up -d
 
