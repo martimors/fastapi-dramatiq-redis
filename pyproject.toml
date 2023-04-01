@@ -5,8 +5,7 @@ description = "Sample async polling API using dramatiq and fastapi, with redis a
 authors = ["Martin Morset <mmorset@gmail.com>"]
 readme = "README.md"
 packages = [
-    {include = "api", from = "src"},
-    {include = "worker", from = "src"}
+    {include = "fastapi-dramatiq-redis"},
     ]
 
 [tool.poetry.dependencies]

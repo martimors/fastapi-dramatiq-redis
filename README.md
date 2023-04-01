@@ -6,22 +6,21 @@ asynchronous API that has long running tasks.
 ## Run the app
 
 ```sh
-# Start redis
-docker compose up -d
+# Start in docker
+docker compose up
 
-# Install dependencies
-poetry install
-
-# Start worker and API
-poetry shell
-uvicorn src.api.app:app & dramatiq src.worker.app
+# Start a task
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"foo":"bar"}' \
+  http://localhost:8080/job
 ```
 
 ## TODO
 
-- Dockerize
-- Flesh out the example with polling endpoint and redirection + returning results (`Result`
-  middleware)
+- ~~Dockerize~~
+- Flesh out the example with polling endpoint and redirection + returning results
 - Test that creates some tasks to test the app, maybe even `locust` just for fun
+- In-memory (stub) broker for testing
 - ~~Pre-commit hooks~~
 - Other interesting parts of `DramatiQ`?
