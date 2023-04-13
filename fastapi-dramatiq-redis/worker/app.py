@@ -1,6 +1,3 @@
-from random import randint
-from time import sleep
-
 import dramatiq
 from dramatiq.brokers.redis import RedisBroker
 from models import Job
@@ -13,6 +10,8 @@ dramatiq.set_broker(redis_broker)
 @dramatiq.actor()
 def job_example(job_str: str) -> None:
     job: Job = Job.parse_raw(job_str)
-    print(f"Job {job.receit.task_id} is running!")
-    sleep(randint(1, 10))  # nosec
-    print(f"Job {job.receit.task_id} finished!")
+    print(
+        f"RESULT {job.receit.task_id}: "
+        f"{job.request.first}+{job.request.second}"
+        f"={job.request.first+job.request.second}"
+    )
