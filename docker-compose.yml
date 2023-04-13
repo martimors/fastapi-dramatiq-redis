@@ -4,11 +4,23 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
-  app:
+  api:
     build: .
     depends_on:
       - redis
     environment:
       - REDIS_DSN=redis://redis/0
+    command: api
     ports:
       - 8080:8080
+
+  worker:
+    build: .
+    depends_on:
+      - redis
+      - api
+    environment:
+      - REDIS_DSN=redis://redis/0
+    command: worker
+    ports:
+      - 9191:9191

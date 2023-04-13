@@ -3,7 +3,8 @@ from pydantic import UUID4
 
 
 class JobRequest(BaseModel):
-    foo: str
+    first: int
+    second: int
 
 
 class JobReceit(BaseModel):
